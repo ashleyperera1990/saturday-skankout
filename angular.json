@@ -32,7 +32,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/saturday-skankout/",
+              "baseHref": "https://ashleyperera1990.github.io/saturday-skankout/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,

@@ -1,0 +1,29 @@
+.navbar {
+    margin-bottom: 0px;
+}
+@keyframes pulse {
+    from { transform: scale(1.25); }
+    50% { transform: scale(0.85); }
+    to { transform: scale(1.25); }
+}
+
+.fe-pulse {
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0); }
+    to { transform: rotate(360deg); }
+}
+.fe-rotate {
+    animation-name: rotate;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+}
+
+.now-playing {
+    margin-bottom: 0;
+    margin-top: 0;
+}

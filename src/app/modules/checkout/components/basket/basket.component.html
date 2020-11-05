@@ -1,0 +1,27 @@
+<table class="table mt-3">
+    <tr>
+        <th>Name</th>
+        <th>Size</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th></th>
+    </tr>
+    <tr *ngFor="let item of basket.basketItems">
+        <td>{{item.product.name}}</td>
+        <td>{{item.size}}</td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.product.price | currency}}</td>
+        <td><i class="fas fa-trash" (click)="removeItemFromBasket(item)"></i>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3"></td>
+        <th>Total</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td colspan="3"></td>
+        <td>{{basket.total | currency}}</td>
+        <td></td>
+    </tr>
+</table>

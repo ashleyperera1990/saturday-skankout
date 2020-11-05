@@ -1,0 +1,44 @@
+<div class="wrapper">
+    <app-page-header [title]="'Merch'"></app-page-header>
+    <div class="section section-about-us" *ngIf="product">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="text-center">
+                        <img class="img-thumbnail" style="height: 500px" [src]="selectedImage.imagePath" alt="">
+                    </div>
+                    <img class="img-thumbnail" style="height: 100px"
+                         [src]="image.imagePath" alt=""
+                         *ngFor="let image of product.images"
+                         (click)="selectImage(image.id)">
+                </div>
+                <div class="col-md-8">
+                    <div class="col-12">
+                        <h1>{{product.name}}</h1>
+                        <h2>{{product.description}}</h2>
+                        <p>
+
+                        </p>
+                        <h3 class="mb-2 mt-2" *ngIf="product.salePrice">
+                            <strike>{{product.price | currency}}</strike> {{product.salePrice | currency}}  </h3>
+                        <h3 class="mb-2 mt-2" *ngIf="!product.salePrice">  {{product.price | currency}}  </h3>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <select [(ngModel)]="selectedSize" class="form-control">
+                                <option [ngValue]="undefined">Select a size</option>
+                                <option *ngFor="let stock of productStock" [ngValue]="stock">
+                                    {{stock.size}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-success" (click)="addProductToBasket()" [disabled]="!selectedSize">
+                        Add To Basket
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

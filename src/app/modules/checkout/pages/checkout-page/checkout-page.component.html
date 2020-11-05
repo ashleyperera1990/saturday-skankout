@@ -1,0 +1,60 @@
+<div class="wrapper">
+    <app-page-header [title]="'Basket'"></app-page-header>
+    <div class="section section-about-us">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8 m-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <ngb-tabset #tabs [type]="'pills'" [justify]="'center'"
+                                        class="nav-pills nav-pills-primary ">
+                                <ngb-tab id="basket">
+                                    <ng-template ngbTabTitle>
+                                        <i class="fa fa-shopping-basket"></i>
+                                    </ng-template>
+                                    <ng-template ngbTabContent>
+                                        <app-basket [basket]="basket"
+                                                    (itemRemoved)="removeItemFromBasket($event)">
+                                        </app-basket>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab id="details" [disabled]="basket.basketItems.length === 0">
+                                    <ng-template ngbTabTitle>
+                                        <i class="fa fa-info-circle"></i>
+                                    </ng-template>
+                                    <ng-template ngbTabContent>
+                                        <app-billing-details-form [(billingForm)]="billingDetailsForm">
+                                        </app-billing-details-form>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab id="payment" [disabled]="basket.basketItems.length === 0 || !billingDetailsForm.valid">
+                                    <ng-template ngbTabTitle>
+                                        <i class="fa fa-credit-card"></i>
+                                    </ng-template>
+                                    <ng-template ngbTabContent>
+                                        <app-braintree></app-braintree>
+                                    </ng-template>
+                                </ngb-tab>
+                            </ngb-tabset>
+
+                            <button *ngIf="tabs.activeId === 'basket'" class="btn btn-info"
+                                    (click)="goBack()">
+                                View Products
+                            </button>
+                            <button *ngIf="tabs.activeId !== 'basket'" class="btn btn-danger"
+                                    (click)="goBack()">
+                                Go Back
+                            </button>
+                            <button *ngIf="tabs.activeId !== 'payment'" class="btn btn-success float-right"
+                                    (click)="continue()" [disabled]="isContinueDisabled(tabs.activeId)">
+                                Continue
+                            </button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<form [formGroup]="billingForm" (change)="onUpdate()" class="mt-3">
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input id="firstName" type="text" class="form-control" formControlName="firstName">
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" type="text" class="form-control" formControlName="lastName">
+            </div>
+        </div>
+    </div>
+    <div formGroupName="address">
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label for="address1">Address Line 1</label>
+                    <input id="address1" type="text" class="form-control" formControlName="line1">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label for="address2">Address Line 2</label>
+                    <input id="address2" type="text" class="form-control" formControlName="line2">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label for="address3">Address Line 3</label>
+                    <input id="address3" type="text" class="form-control" formControlName="line3">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input id="city" type="text" class="form-control" formControlName="city">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <input id="country" type="text" class="form-control" formControlName="country">
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="form-group">
+                    <label for="postcode">Postcode</label>
+                    <input id="postcode" type="text" class="form-control" formControlName="postcode">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

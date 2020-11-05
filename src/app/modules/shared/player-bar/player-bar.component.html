@@ -1,0 +1,25 @@
+<nav class="navbar fixed-bottom navbar-light bg-primary">
+    <div class="container">
+        <button *ngIf="!isPlaying && !isLoading" (click)="playStream()" class="btn btn-fab btn-success btn-icon btn-round">
+            <i class="fas fa-play"></i>
+        </button>
+        <button *ngIf="isLoading" class="btn btn-fab btn-icon btn-round btn-info fe-rotate">
+            <i class="fas fa-hourglass-half"></i>
+        </button>
+        <button *ngIf="isPlaying && !isLoading"
+                (click)="stopStream()"
+                class="btn btn-fab btn-icon btn-round btn-danger fe-pulse">
+            <i class="fas fa-stop"></i>
+        </button>
+        <a href="javascript:void(0)" class="navbar-brand pr-3 ml-2 d-none d-md-block">
+            <h4 *ngIf="!isPlaying && !isLoading" class="now-playing">Listen</h4>
+            <h4 *ngIf="isLoading" class="now-playing">Loading</h4>
+            <h4 *ngIf="isPlaying && !isLoading" class="now-playing">Stop</h4>
+        </a>
+        <a *ngIf="stats" href="javascript:void(0)" class="navbar-brand mr-auto ml-4">
+            {{stats.server_name}}
+            <br>
+            <strong>{{stats.title}}</strong>
+        </a>
+    </div>
+</nav>
